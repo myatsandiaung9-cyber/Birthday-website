@@ -1,0 +1,522 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Ko Ko</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Quicksand', sans-serif;
+        }
+
+        body {
+            background-color: #ffffff;
+            background-image: 
+                radial-gradient(#ffccd5 , transparent 16%),
+                radial-gradient(#ffe5ec , transparent 16%);
+            background-size: 60px 60px;
+            background-position: 0 0, 30px 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            overflow: visible;
+            position: relative;
+        }
+
+        /* Background Floating Balloons Animation */
+        .balloon {
+            position: absolute;
+            bottom: -50px;
+            background: rgba(255, 117, 140, 0.4);
+            border-radius: 50% 50% 50% 50% / 40% 40% 60% 60%;
+            animation: floatUp 6s infinite ease-in-out;
+            z-index: 1;
+        }
+
+        .balloon::after {
+            content: "";
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 10px;
+            background: rgba(255, 117, 140, 0.5);
+        }
+
+        .balloon:nth-child(1) { left: 15%; width: 25px; height: 32px; animation-duration: 5s; animation-delay: 0s; background: rgba(255, 133, 162, 0.4); }
+        .balloon:nth-child(2) { left: 35%; width: 30px; height: 38px; animation-duration: 7s; animation-delay: 2s; background: rgba(162, 182, 255, 0.4); }
+        .balloon:nth-child(3) { left: 65%; width: 22px; height: 28px; animation-duration: 6s; animation-delay: 1s; background: rgba(255, 182, 193, 0.5); }
+        .balloon:nth-child(4) { left: 85%; width: 28px; height: 35px; animation-duration: 8s; animation-delay: 3s; background: rgba(255, 150, 180, 0.4); }
+        .balloon:nth-child(4) { left: 85%; width: 28px; height: 35px; animation-duration: 9s; animation-delay: 3s; background: rgba(255, 150, 180, 0.4); }
+
+        @keyframes floatUp {
+            0% { transform: translateY(0) scale(1); opacity: 0; }
+            20% { opacity: 0.8; }
+            100% { transform: translateY(-105vh) scale(1.05); opacity: 0; }
+        }
+
+        /* Main Card Container */
+        .container {
+            width: 100%;
+            max-width: 420px;
+            padding: 30px 20px;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Top Title Style */
+        .title-container {
+            margin-bottom: 30px;
+        }
+
+       .curved-svg {
+            width: 100%;
+            height: 55px;
+            overflow: visible;
+        }
+
+        .curved-text {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+            fill: #5c5252;
+            letter-spacing: 1px;
+            overflow: visible;
+        }
+        .sub-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #ff6b8b;
+            font-family: 'verdana', sans-serif;
+            margin-top: 5px;
+            margin-bottom: 70px;
+        }
+
+        /* Floating Image Box */
+        .image-box {
+            width: 70%;
+            margin: 0 auto 10px auto;
+            border-radius: 330px;
+            overflow: visible; 
+            animation: floatingImage 3s infinite ease-in-out;
+            background: transparent !important;
+        }
+
+        .image-box img {
+            width: 100%;
+            height: auto;
+            display: block;
+            background: transparent;
+            margin-bottom: 40px;
+            
+            mix-blend-mode: darken;
+            filter: contrast(1.2) brightness(1.02);
+        }
+
+        @keyframes floatingImage {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Wishes Text Section */
+        .wish-section {
+            margin-top: 10px;
+            padding: 0 10px;
+        }
+
+        .wish-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #5c5252;
+            margin-bottom: 15px;
+        }
+
+        .wish-subtitle {
+            font-size: 16px;
+            color: #7a6e6e;
+            line-height: 1.7;
+        }
+
+        /* Bottom Heart Divider */
+        .bottom-decor {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            color: #ff8fab;
+            font-size: 14px;
+            margin-top: 15px;
+        }
+
+        .bottom-decor hr {
+            flex: 1;
+            border: none;
+            height: 1px;
+            background-color: #ffccd5;
+            max-width: 50px;
+        }
+
+       /* Bottom Heart Divider */
+        .bottom-decor {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            color: #ff8fab;
+            font-size: 14px;
+            margin-top: 20px;
+            width: 100%;
+        }
+
+       /* Next Page Button Style - Absolute Center Positioning */
+        .next-btn {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: linear-gradient(135deg, #ff8fab, #ff6b8b);
+            color: #fff;
+            padding: 10px 28px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 700;
+            box-shadow: 0 5px 15px rgba(255, 107, 139, 0.3);
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .next-btn:hover {
+            transform: translateX(-50%) translateY(-2px);
+            box-shadow: 0 8px 20px rgba(255, 107, 139, 0.4);
+            background: linear-gradient(135deg, #ff7597, #ff5277);
+        }
+
+        /* container မှာ position: relative နှင့် အောက်ခြေ padding ထည့်ရန် */
+        .container {
+            position: relative;
+            padding-bottom: 70px !important; /* ခလုတ်အတွက် အောက်ခြေ နေရာချန်ရန် */
+        }
+
+        
+    </style>
+</head>
+<body>
+
+    <div class="balloon"></div>
+    <div class="balloon"></div>
+    <div class="balloon"></div>
+    <div class="balloon"></div>
+
+    <div class="container">
+        <div class="title-container">
+           
+            <svg class="curved-svg" viewBox="0 0 300 60">
+                <path id="curve" d="M 20,45 Q 150,5 280,45" fill="transparent" />
+                <text width="300" text-anchor="middle">
+                    <textPath href="#curve" startOffset="50%" text-anchor="middle" class="curved-text">
+                      🎀  Happy Birthday 🎀
+                    </textPath>
+                </text>
+            </svg>
+            <div class="sub-title">♡ Ah Ko ♡</div>
+        </div>
+
+        <div class="image-box">
+            <img src="image/b2.jpg" alt="Cute Cat Birthday">
+        </div>
+
+        <div class="wish-section">
+            <div class="wish-title">
+                ✨Today is your special day!✨
+            </div>
+            <div class="wish-subtitle">
+                I hope your day is filled with<br>
+                happiness, laughter & lots of good memories. ♡
+            </div>
+        </div>
+
+        <!-- Next Page Button -->
+        <a href="message.html" class="next-btn">
+            Next Page <span>→</span>
+        </a>
+
+    </div>
+    
+    
+</body>
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Ko Ko</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Quicksand', sans-serif;
+        }
+
+        body {
+            background-color: #ffffff;
+            background-image: 
+                radial-gradient(#ffccd5 , transparent 16%),
+                radial-gradient(#ffe5ec , transparent 16%);
+            background-size: 60px 60px;
+            background-position: 0 0, 30px 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            overflow: visible;
+            position: relative;
+        }
+
+        /* Background Floating Balloons Animation */
+        .balloon {
+            position: absolute;
+            bottom: -50px;
+            background: rgba(255, 117, 140, 0.4);
+            border-radius: 50% 50% 50% 50% / 40% 40% 60% 60%;
+            animation: floatUp 6s infinite ease-in-out;
+            z-index: 1;
+        }
+
+        .balloon::after {
+            content: "";
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 10px;
+            background: rgba(255, 117, 140, 0.5);
+        }
+
+        .balloon:nth-child(1) { left: 15%; width: 25px; height: 32px; animation-duration: 5s; animation-delay: 0s; background: rgba(255, 133, 162, 0.4); }
+        .balloon:nth-child(2) { left: 35%; width: 30px; height: 38px; animation-duration: 7s; animation-delay: 2s; background: rgba(162, 182, 255, 0.4); }
+        .balloon:nth-child(3) { left: 65%; width: 22px; height: 28px; animation-duration: 6s; animation-delay: 1s; background: rgba(255, 182, 193, 0.5); }
+        .balloon:nth-child(4) { left: 85%; width: 28px; height: 35px; animation-duration: 8s; animation-delay: 3s; background: rgba(255, 150, 180, 0.4); }
+        .balloon:nth-child(4) { left: 85%; width: 28px; height: 35px; animation-duration: 9s; animation-delay: 3s; background: rgba(255, 150, 180, 0.4); }
+
+        @keyframes floatUp {
+            0% { transform: translateY(0) scale(1); opacity: 0; }
+            20% { opacity: 0.8; }
+            100% { transform: translateY(-105vh) scale(1.05); opacity: 0; }
+        }
+
+        /* Main Card Container */
+        .container {
+            width: 100%;
+            max-width: 420px;
+            padding: 30px 20px;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Top Title Style */
+        .title-container {
+            margin-bottom: 30px;
+        }
+
+       .curved-svg {
+            width: 100%;
+            height: 55px;
+            overflow: visible;
+        }
+
+        .curved-text {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+            fill: #5c5252;
+            letter-spacing: 1px;
+            overflow: visible;
+        }
+        .sub-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #ff6b8b;
+            font-family: 'verdana', sans-serif;
+            margin-top: 5px;
+            margin-bottom: 70px;
+        }
+
+        /* Floating Image Box */
+        .image-box {
+            width: 70%;
+            margin: 0 auto 10px auto;
+            border-radius: 330px;
+            overflow: visible; 
+            animation: floatingImage 3s infinite ease-in-out;
+            background: transparent !important;
+        }
+
+        .image-box img {
+            width: 100%;
+            height: auto;
+            display: block;
+            background: transparent;
+            margin-bottom: 40px;
+            
+            mix-blend-mode: darken;
+            filter: contrast(1.2) brightness(1.02);
+        }
+
+        @keyframes floatingImage {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Wishes Text Section */
+        .wish-section {
+            margin-top: 10px;
+            padding: 0 10px;
+        }
+
+        .wish-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #5c5252;
+            margin-bottom: 15px;
+        }
+
+        .wish-subtitle {
+            font-size: 16px;
+            color: #7a6e6e;
+            line-height: 1.7;
+        }
+
+        /* Bottom Heart Divider */
+        .bottom-decor {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            color: #ff8fab;
+            font-size: 14px;
+            margin-top: 15px;
+        }
+
+        .bottom-decor hr {
+            flex: 1;
+            border: none;
+            height: 1px;
+            background-color: #ffccd5;
+            max-width: 50px;
+        }
+
+       /* Bottom Heart Divider */
+        .bottom-decor {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            color: #ff8fab;
+            font-size: 14px;
+            margin-top: 20px;
+            width: 100%;
+        }
+
+       /* Next Page Button Style - Absolute Center Positioning */
+        .next-btn {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: linear-gradient(135deg, #ff8fab, #ff6b8b);
+            color: #fff;
+            padding: 10px 28px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 700;
+            box-shadow: 0 5px 15px rgba(255, 107, 139, 0.3);
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .next-btn:hover {
+            transform: translateX(-50%) translateY(-2px);
+            box-shadow: 0 8px 20px rgba(255, 107, 139, 0.4);
+            background: linear-gradient(135deg, #ff7597, #ff5277);
+        }
+
+        /* container မှာ position: relative နှင့် အောက်ခြေ padding ထည့်ရန် */
+        .container {
+            position: relative;
+            padding-bottom: 70px !important; /* ခလုတ်အတွက် အောက်ခြေ နေရာချန်ရန် */
+        }
+
+        
+    </style>
+</head>
+<body>
+
+    <div class="balloon"></div>
+    <div class="balloon"></div>
+    <div class="balloon"></div>
+    <div class="balloon"></div>
+
+    <div class="container">
+        <div class="title-container">
+           
+            <svg class="curved-svg" viewBox="0 0 300 60">
+                <path id="curve" d="M 20,45 Q 150,5 280,45" fill="transparent" />
+                <text width="300" text-anchor="middle">
+                    <textPath href="#curve" startOffset="50%" text-anchor="middle" class="curved-text">
+                      🎀  Happy Birthday 🎀
+                    </textPath>
+                </text>
+            </svg>
+            <div class="sub-title">♡ Ah Ko ♡</div>
+        </div>
+
+        <div class="image-box">
+            <img src="image/b2.jpg" alt="Cute Cat Birthday">
+        </div>
+
+        <div class="wish-section">
+            <div class="wish-title">
+                ✨Today is your special day!✨
+            </div>
+            <div class="wish-subtitle">
+                I hope your day is filled with<br>
+                happiness, laughter & lots of good memories. ♡
+            </div>
+        </div>
+
+        <!-- Next Page Button -->
+        <a href="message.html" class="next-btn">
+            Next Page <span>→</span>
+        </a>
+
+    </div>
+    
+    
+</body>
+>>>>>>> 96664ac (update website page)
+</html>

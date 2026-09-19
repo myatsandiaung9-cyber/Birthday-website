@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Little Message For You</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Quicksand', sans-serif;
+        }
+
+        body {
+            background-color: #fff5f5;
+            background-image: 
+                radial-gradient(#ffccd5, transparent 16%),
+                radial-gradient(#ffe5ec, transparent 16%);
+            background-size: 60px 60px;
+            background-position: 0 0, 30px 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 15px;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Main Container Card - နေရာလွတ်ပိုဆန့်ရန် အကျယ်နှင့် padding ချိန်ထားသည် */
+        .container {
+            width: 100%;
+            max-width: 420px;
+            background: #ffffff;
+            border-radius: 30px;
+            box-shadow: 0 10px 30px rgba(255, 182, 193, 0.3);
+            padding: 25px 20px 75px 20px;
+            text-align: center;
+            border: 2px solid #ffc4df;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Top Header Title */
+        .top-title {
+            font-size: 19px;
+            font-weight: 700;
+            color: #5c5252;
+            margin-bottom: 40px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .top-title::before, .top-title::after {
+            content: "–";
+            color: #ff8fab;
+            font-size: 18px;
+            margin: 0 8px;
+        }
+
+        /* Message Box Style with Icons */
+        .message-box {
+            background: #ffeeee;
+            border: 2px dashed #ffb3c6;
+            border-radius: 20px;
+            padding: 25px 12px;
+            min-height: 210px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            box-shadow: inset 0 2px 10px rgba(255, 182, 193, 0.1);
+            position: relative;
+            margin-bottom: 12px;
+        }
+
+        /* Decorative Icons inside Box */
+        .heart-top-left {
+            position: absolute;
+            top: 10px;
+            left: 12px;
+            font-size: 13px;
+            color: #ff8fab;
+            display: flex;
+            gap: 3px;
+        }
+
+        .envelope-top-right {
+            position: absolute;
+            top: 8px;
+            right: 12px;
+            font-size: 16px;
+        }
+
+        .heart-bottom-left {
+            position: absolute;
+            bottom: 10px;
+            left: 12px;
+            font-size: 14px;
+        }
+
+        .heart-bottom-right {
+            position: absolute;
+            bottom: 10px;
+            right: 12px;
+            font-size: 14px;
+        }
+
+        /* Text Animation Styles - နေရာပိုလွတ်အောင် margin လျှော့ထားသည် */
+        .line {
+            font-size: 13.5px;
+            font-weight: 600;
+            color: #5c5252;
+            margin-bottom: 10px;
+            white-space: normal;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.6s ease;
+            text-align: center;
+            width: 100%;
+        }
+
+        /* Final Highlight Text */
+        .final-line {
+            font-size: 14.5px;
+            font-weight: 700;
+            color: #ff5277;
+            margin-top: 6px;
+            background: #ffe5ec;
+            padding: 6px 12px;
+            border-radius: 20px;
+            opacity: 0;
+            transform: scale(0.9);
+            transition: all 0.5s ease;
+        }
+
+        /* Cute Bottom Cat Image - အရွယ်အစား အနေတော်ညှိထားသည် */
+        .bottom-cat {
+            width: 85px;
+            margin: 0 auto;
+            animation: floating 3s infinite ease-in-out;
+        }
+
+        .bottom-cat img {
+            width: 100%;
+            display: block;
+            mix-blend-mode: darken;
+        }
+
+        @keyframes floating {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+
+        /* Next Page Button Style - အောက်ခြေက ခလုတ်ကို အံဝင်ခွင်ကျ ဖြစ်စေရန် */
+        .next-btn {
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            background: linear-gradient(135deg, #ff8fab, #ff6b8b);
+            color: #fff;
+            padding: 9px 26px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 13.5px;
+            font-weight: 700;
+            box-shadow: 0 4px 12px rgba(255, 107, 139, 0.3);
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .next-btn:hover {
+            transform: translateX(-50%) translateY(-2px);
+            box-shadow: 0 6px 16px rgba(255, 107, 139, 0.4);
+            background: linear-gradient(135deg, #ff7597, #ff5277);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div style="font-size: 20px; color: #ff8fab; margin-bottom: 3px;">🎀</div>
+        <div class="top-title">A Little Message For You</div>
+
+        <div class="message-box">
+            <div class="heart-top-left">❤️❤️❤️</div>
+            <div class="envelope-top-right">🤍💌</div>
+            <div class="heart-bottom-left">♡</div>
+            <div class="heart-bottom-right">🤍</div>
+
+            <div class="line" id="line1">There are many people in this world...</div>
+            <div class="line" id="line2">but somehow, you became someone special to me. ♡</div>
+            <div class="line" id="line3">So today, I just want to say...</div>
+            <div class="final-line" id="finalText">Happy Birthday par Ah Ko! 🎂💗</div>
+        </div> 
+
+        <div class="bottom-cat">
+            <img src="image/b1.jpg" alt="Cute Cat">
+        </div>
+
+        <a href="memory.html" class="next-btn">
+            Next Page <span>→</span>
+        </a>
+    </div>
+
+    <script>
+        // ဖြည်းဖြည်းချင်း တစ်ကြောင်းချင်း ပေါ်လာစေရန် JavaScript
+        function runMessageAnimation() {
+            const line1 = document.getElementById('line1');
+            const line2 = document.getElementById('line2');
+            const line3 = document.getElementById('line3');
+            const finalText = document.getElementById('finalText');
+
+            setTimeout(() => {
+                line1.style.opacity = '1';
+                line1.style.transform = 'translateY(0)';
+            }, 800);
+
+            setTimeout(() => {
+                line2.style.opacity = '1';
+                line2.style.transform = 'translateY(0)';
+            }, 3000);
+
+            setTimeout(() => {
+                line3.style.opacity = '1';
+                line3.style.transform = 'translateY(0)';
+            }, 5500);
+
+            setTimeout(() => {
+                finalText.style.opacity = '1';
+                finalText.style.transform = 'scale(1)';
+            }, 8000);
+        }
+
+        window.onload = runMessageAnimation;
+    </script>
+</body>
+</html>
